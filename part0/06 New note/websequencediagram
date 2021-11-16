@@ -1,0 +1,12 @@
+note over browser:
+The Browser created note and adds it to notes.
+The Browser clears the input element.
+The Browser sends a post request with body:
+{"content":"I love Helsinki!","date":"2021-11-16T11:53:23.379Z"}
+end note
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+note over server:
+The server creates a new note object, and adds it to an array called notes.
+Then server responds to the browser with message: "note created"
+end note
+server-->browser: 201
