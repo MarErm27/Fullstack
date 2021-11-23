@@ -78,13 +78,33 @@ const App = () => {
         const copy = [...votes]
         copy[selected] += 1
         setVotes(copy)
+        let max = 0
+        let maxIndex = 0
+        copy.forEach((element, i) => {
+            if (max < element) {
+                max = element
+                maxIndex = i
+            }
+            console.log(element, i)
+        })
+        setToBest(maxIndex)
     }
+
+    const [best, setBest] = useState(0)
+    const setToBest = (newValue) => {
+      setBest(newValue)
+    }
+
     return (
         <div>
-            <p>{anecdotes[selected]}</p>
-            <p>has {votes[selected]} votes</p>
+            <h1>Anecdote of the day</h1>
+            <div>{anecdotes[selected]}</div>
+            <div>has {votes[selected]} votes</div>
             <Button handleClick={() => setToVotes()} text="vote"/>
             <Button handleClick={() => setToSelected(randomNumber())} text="next anecdote"/>
+            <h1>Anecdote with most votes</h1>
+            <div>{anecdotes[best]}</div>
+            <div>has {votes[best]} votes</div>
         </div>
     )
 }
