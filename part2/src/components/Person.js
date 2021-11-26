@@ -1,9 +1,8 @@
-import React from "react";
+import React from 'react'
 
-const Person = ({person}) => {
-    console.log(person.name)
+const Person = (props) => {
     return (
-        <li key={person.name}>{person.name}</li>
+        <li>{props.name} {props.phone}</li>
     )
 }
 
